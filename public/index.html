@@ -155,6 +155,10 @@
           <template x-if="item.photos">
             <img :src="item.photos[0].alt_sizes[0].url" class="image-fluid" />
           </template>
+
+          <template x-if="item.caption">
+            <div x-html="item.caption"></div>
+          </template>
         </article>
       </template>
     </div>
