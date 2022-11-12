@@ -187,7 +187,7 @@
           posts: [],
           init() {
             console.log("init");
-            fetch("/api/publish.js?usename=gemmanimatie")
+            fetch("/api/publish.js?username=gemmanimatie")
               .then((response) => response.json())
               .then((data) => {
                 console.log(data);
