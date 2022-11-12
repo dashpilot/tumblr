@@ -151,6 +151,10 @@
           <template x-if="item.player">
             <div x-html="item.player[0].embed_code"></div>
           </template>
+
+          <template x-if="item.image_permalink">
+            <img :src="item.image_permalink" class="image-fluid" />
+          </template>
         </article>
       </template>
     </div>
