@@ -139,7 +139,8 @@
   </head>
 
   <body>
-    <div class="swiper" x-data="app()">
+    hello
+    <div class="swiper" x-data="app()" x-init="init()">
       <div class="swiper-wrapper">
         <template x-for="item in posts">
           <div class="wdgt swiper-slide">
@@ -148,7 +149,7 @@
                 <img src="img/phone.svg" />
               </div>
               <div class="text-center">
-                <h2 x-text="item.title"></h2>
+                <h2 x-text="item.title">hello</h2>
                 <button class="btn btn-outline-light">Get Started</button>
               </div>
             </main>
