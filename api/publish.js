@@ -6,11 +6,21 @@ export default function handler(request, response) {
     consumer_secret: process.env.TMBLR_SECRET,
   });
 
-  client.blogPosts(request.query.username, function (err, resp) {
-    // console.log(resp.posts); // now we've got all kinds of posts
-
+  if (request.query.username) {
+    try {
+      client.blogPosts(request.query.username, function (err, resp) {
+        response.status(200).json({
+          body: resp.posts,
+        });
+      });
+    } catch (e) {
+      response.status(200).json({
+        body: { error: e },
+      });
+    }
+  } else {
     response.status(200).json({
-      body: resp.posts,
+      body: { error: "No username provided" },
     });
-  });
+  }
 }
