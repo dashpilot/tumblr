@@ -10,17 +10,17 @@ export default function handler(request, response) {
     try {
       client.blogPosts(request.query.username, function (err, resp) {
         response.status(200).json({
-          body: resp.posts,
+          result: resp.posts,
         });
       });
     } catch (e) {
       response.status(200).json({
-        body: { error: e },
+        result: { error: e },
       });
     }
   } else {
     response.status(200).json({
-      body: { error: "No username provided" },
+      result: { error: "No username provided" },
     });
   }
 }
