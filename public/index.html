@@ -152,8 +152,8 @@
             <div x-html="item.player[0].embed_code"></div>
           </template>
 
-          <template x-if="item.image_permalink">
-            <img :src="item.image_permalink" class="image-fluid" />
+          <template x-if="item.photos">
+            <img :src="item.photos.alt_sizes[0]" class="image-fluid" />
           </template>
         </article>
       </template>
