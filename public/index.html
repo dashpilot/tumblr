@@ -144,7 +144,9 @@
         <div>
           <h2 x-html="item.blog.title"></h2>
 
-          <h2 x-html="item.player[0].embed_code"></h2>
+          <template x-if="item.player">
+            <h2 x-html="item.player[0].embed_code"></h2>
+          </template>
         </div>
       </template>
     </div>
