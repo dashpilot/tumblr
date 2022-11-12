@@ -139,26 +139,20 @@
   </head>
 
   <body>
-    <div class="swiper" x-data="app()" x-init="init()">
-      <div class="swiper-wrapper">
-        <template x-for="item in posts">
-          <div class="wdgt swiper-slide">
-            <main class="body">
-              <h2 x-html="item.blog.title"></h2>
+    <div class="container" x-data="app()" x-init="init()">
+      <template x-for="item in posts">
+        <article class="body">
+          <h2 x-html="item.blog.title"></h2>
 
-              <template x-if="item.player">
-                <h2 x-html="item.player[0].embed_code"></h2>
-              </template>
-            </main>
-          </div>
-        </template>
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
+          <template x-if="item.body">
+            <div x-html="body"></div>
+          </template>
 
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+          <template x-if="item.player">
+            <div x-html="item.player[0].embed_code"></div>
+          </template>
+        </article>
+      </template>
     </div>
 
     <script>
@@ -172,25 +166,6 @@
               .then((data) => {
                 console.log(data);
                 this.posts = data.result;
-
-                setTimeout(() => {
-                  const swiper = new Swiper(".swiper", {
-                    // Optional parameters
-                    direction: "horizontal",
-                    loop: true,
-
-                    // If we need pagination
-                    pagination: {
-                      el: ".swiper-pagination",
-                    },
-
-                    // Navigation arrows
-                    navigation: {
-                      nextEl: ".swiper-button-next",
-                      prevEl: ".swiper-button-prev",
-                    },
-                  });
-                }, 100);
               });
           },
         };
